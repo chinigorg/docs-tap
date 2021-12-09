@@ -1,14 +1,15 @@
-# Workload Visibility User Guide
+# Runtime Resources Visibility User Guide
 
-The Workload Visibility screen lets developers view the details and status of their Kubernetes
-Workloads to understand their structure, and debug issues.
+The Runtime Resources Visibility screen lets developers view the details and status of their Kubernetes
+resources to understand their structure, and debug issues.
 
 ## Before You Begin
 
-Developers must perform the following actions to see their Workloads on the dashboard:
+Developers must perform the following actions to see their resources on the dashboard:
 
 1. Define a Backstage Component with a `backstage.io/kubernetes-label-selector` annotation. See
   [Components](../catalog/catalog-operations.md#components) in the Catalog Operations documentation.
+  
   ```yaml
   apiVersion: backstage.io/v1alpha1
   kind: Component
@@ -24,9 +25,10 @@ Developers must perform the following actions to see their Workloads on the dash
     system:
   ```
 
-1. Commit and push the Component definition to a Git repository that is registered as a Catalog Location. See [Adding Catalog Entities](../catalog/catalog-operations.md#adding-catalog-entities) in the Catalog Operations documentation.
-1. Create a Kubernetes Workload with a label matching the Component's selector, in a cluster available to the Tanzu Application Platform
-  GUI. A Workload is one of the following:
+2. Commit and push the Component definition to a Git repository that is registered as a Catalog Location. See [Adding Catalog Entities](../catalog/catalog-operations.md#adding-catalog-entities) in the Catalog Operations documentation.
+
+3. Create a Kubernetes resource with a label matching the Component's selector, in a cluster available to the Tanzu Application Platform
+  GUI. A resource is one of the following:
   - `v1/Service`
   - `apps/v1/Deployment`
   - `serving.knative.dev/v1/Service`
@@ -52,14 +54,14 @@ Developers must perform the following actions to see their Workloads on the dash
   EOF
   ```
 
-## Navigate to the Workload Visibility Screen
+## Navigate to the resources Screen
 
-You can view the list of running Workloads and details about their status, type, namespace, cluster, and public URL if applicable for the Workload type.
+You can view the list of running Kubernetes resources and details about their status, type, namespace, cluster, and public URL if applicable for each resources.
 
-To view the list of your running Workloads:
+To view the list of your running Kubernetes resources:
 
 1. Select the Component from the Catalog index page.
-1. Select the Workloads tab.
+1. Select the Runtime Resources tab.
 
 ![Workload index table](./images/workload-visibility-workloads.png)
 
